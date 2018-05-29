@@ -8,7 +8,7 @@ class Logger {
   logMessage(message) {
     const date = moment(message.date * 1000);
     const author = message.from;
-    this.logger.log(`[${date.format('DD.MM.YYYY HH:mm:ss')}] {id: ${author.id}, username: ${author.username}, first_name: ${author.first_name}} ${message.text}`);
+    this.logger.log(`[${date.format('DD.MM.YYYY HH:mm:ss')}] [id: ${author.id}, username: ${author.username}, first_name: ${author.first_name}] ${message.text}`);
   }
 }
 
