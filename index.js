@@ -1,2 +1,3 @@
 require('dotenv').config();
-const bot = require('./src/bot');
+require('./src/bot');
+require('./src/server');
