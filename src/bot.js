@@ -1,6 +1,10 @@
 const TelegramBot = require('node-telegram-bot-api');
 const Snoowrap = require('snoowrap');
 
+const Logger = require('./logger');
+
+const logger = new Logger();
+
 const {
   TELEGRAM_TOKEN, REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET, REDDIT_USERNAME, REDDIT_PASSWORD,
 } = process.env;
@@ -23,3 +27,8 @@ bot.onText(/\/img/, (msg) => {
     bot.sendPhoto(chatId, res[Math.floor(Math.random() * res.length) + 1].url);
   });
 });
+
+bot.onText(/.*/, (msg) => {
+  logger.logMessage(msg);
+});
+
